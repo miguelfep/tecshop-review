@@ -1,0 +1,29 @@
+<?php
+$productId = $this->getProductId();
+$reviews = $this->getReviewsByProductId($productId);
+?>
+
+<div class="reviews-list">
+    <?php foreach ($reviews as $review): ?>
+        <div class="review-item">
+            <div class="review-rating"><?= $review->getRating() ?> stars</div>
+            <div class="review-comment"><?= $review->getComment() ?></div>
+        </div>
+    <?php endforeach; ?>
+</div>
+
+<div class="review-form">
+    <h3>Adicione sua avaliação</h3>
+    <form action="<?= $block->getUrl('reviews/index/save') ?>" method="post">
+        <input type="hidden" name="product_id" value="<?= $this->getProductId() ?>">
+        <div class="form-group">
+            <label for="rating">Classificação (1-5):</label>
+            <input type="number" name="rating" id="rating" min="1" max="5" required>
+        </div>
+        <div class="form-group">
+            <label for="comment">Comentário:</label>
+            <textarea name="comment" id="comment" rows="5" required></textarea>
+        </div>
+        <button type="submit">Enviar avaliação</button>
+    </form>
+</div>
