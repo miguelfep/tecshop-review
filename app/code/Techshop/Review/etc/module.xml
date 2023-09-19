@@ -3,6 +3,7 @@
     <module name="Techshop_Review" setup_version="1.0.0">
         <sequence>
             <module name="Magento_Review"/>
+            <module name="Magento_Ui"/>
         </sequence>
     </module>
 </config>

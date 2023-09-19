@@ -1,0 +1,6 @@
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <add id="Techshop_Review::review" title="Techshop Reviews" module="Techshop_Review" sortOrder="10" resource="Techshop_Review::review"/>
+        <add id="Techshop_Review::manage_review" title="Manage Reviews" module="Techshop_Review" sortOrder="10" action="techshop_review/review/index" resource="Techshop_Review::manage_review" parent="Techshop_Review::review"/>
+    </menu>
+</config>

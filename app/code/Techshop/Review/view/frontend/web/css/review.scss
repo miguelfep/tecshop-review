@@ -1,0 +1,11 @@
+.fa {
+    cursor: pointer;
+
+    &.fa-star {
+        color: #e0e0e0;
+
+        &.selected {
+            color: #FFD700;
+        }
+    }
+}

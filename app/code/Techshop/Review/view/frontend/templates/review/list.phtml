@@ -1,0 +1,6 @@
+<?php
+$reviews = $block->getCustomReviews();
+foreach ($reviews as $review) {
+    echo $review->getComment() . "<br>";
+    // Adicione outros campos conforme necessário.
+}
