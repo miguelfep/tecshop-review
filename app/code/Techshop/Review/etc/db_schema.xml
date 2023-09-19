@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Setup/Declaration/Schema/etc/schema.xsd">
+    <table name="techshop_review_data">
+        <column xsi:type="int" name="entity_id" unsigned="true" nullable="false" identity="true" comment="Entity ID"/>
+        <column xsi:type="int" name="review_id" unsigned="true" nullable="false" comment="Review ID"/>
+        <column xsi:type="decimal" name="rating" scale="2" unsigned="false" nullable="false" default="0" comment="Rating"/>
+        <column xsi:type="smallint" name="was_helpful" unsigned="true" nullable="false" default="0" comment="Was the review helpful?"/>
+        <column xsi:type="text" name="comment" nullable="true" comment="Comment"/>
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="entity_id"/>
+        </constraint>
+    </table>
+</schema>
