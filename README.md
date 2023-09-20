@@ -12,7 +12,7 @@ This Magento 2 module provides review functionality for Techshop's products.
 
 ### Download the zip:
 
-- Download the zip file from [here 1](https://github.com/miguelfep/tecshop-review/archive/refs/heads/master.zip)
+- Download the zip file from [here](https://github.com/miguelfep/tecshop-review/archive/refs/heads/master.zip)
 - Extract the zip file
 - Copy the extracted code to app/code/Techshop/Review
 
