@@ -3,8 +3,8 @@
     <acl>
         <resources>
             <resource id="Magento_Backend::admin">
-                <resource id="Techshop_Review::review" title="Techshop Review" sortOrder="10">
-                    <resource id="Techshop_Review::manage_review" title="Manage Reviews" sortOrder="10" />
+                <resource id="Techshop_Review::top_level" title="Techshop Review" sortOrder="10">
+                    <resource id="Techshop_Review::review" title="Manage Reviews" sortOrder="10" />
                 </resource>
             </resource>
         </resources>
