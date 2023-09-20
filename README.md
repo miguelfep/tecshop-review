@@ -42,12 +42,12 @@ vendor/bin/phpunit -c dev/tests/unit/phpunit.xml.dist app/code/Techshop/Review/T
 ## Screenshots
 
 ### Review form
-![formulario](screenshots/form1.png)
+![formulario](app/code/Techshop/Review/screenshots/form1.png)
 
-![formulario preenchido](screenshots/form2.png)
+![formulario preenchido](app/code/Techshop/Review/screenshots/form2.png)
 
 ### Admin panel
-![formulario](screenshots/admin1.png)
+![formulario](app/code/Techshop/Review/screenshots/admin1.png)
 
 ## Review list
-![formulario](screenshots/reviewlist.png)
+![formulario](app/code/Techshop/Review/screenshots/reviewlist.png)
