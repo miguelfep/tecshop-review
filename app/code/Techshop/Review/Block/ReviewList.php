@@ -8,8 +8,20 @@ use Techshop\Review\Model\ResourceModel\CustomData\CollectionFactory as ReviewCo
 
 class ReviewList extends Template
 {
+    /**
+     * Factory for the custom review collection.
+     *
+     * @var ReviewCollectionFactory
+     */
     protected $_reviewCollectionFactory;
 
+    /**
+     * Constructor.
+     *
+     * @param Context $context
+     * @param ReviewCollectionFactory $reviewCollectionFactory
+     * @param array $data
+     */
     public function __construct(
         Context $context,
         ReviewCollectionFactory $reviewCollectionFactory,
@@ -19,8 +31,15 @@ class ReviewList extends Template
         parent::__construct($context, $data);
     }
 
+    /**
+     * Retrieve the custom reviews.
+     *
+     * @return \Techshop\Review\Model\ResourceModel\CustomData\Collection
+     */
     public function getCustomReviews()
     {
-        return $this->_reviewCollectionFactory->create()->getItems();
-    }
+        $collection = $this->_reviewCollectionFactory->create();
+        $collection->addApprovedFilter();
+        return $collection->getItems();
+        }  
 }

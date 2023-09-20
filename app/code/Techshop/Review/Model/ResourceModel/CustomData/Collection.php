@@ -11,4 +11,15 @@ class Collection extends AbstractCollection
     {
         $this->_init('Techshop\Review\Model\CustomData', 'Techshop\Review\Model\ResourceModel\CustomData');
     }
+
+    /**
+     * Add filter to collection to retrieve only approved reviews.
+     * 
+     * @return $this
+     */
+    public function addApprovedFilter()
+    {
+        $this->addFieldToFilter('is_approved', 1);
+        return $this;
+    }
 }

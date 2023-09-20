@@ -1,6 +1,47 @@
 <?php
-$reviews = $block->getCustomReviews();
-foreach ($reviews as $review) {
-    echo $review->getComment() . "<br>";
-    // Adicione outros campos conforme necessário.
-}
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+use Magento\Framework\Escaper;
+use Magento\Framework\View\Helper\SecureHtmlRenderer;
+use Magento\Review\Block\Product\View\ListView;
+
+/**
+ * @var ListView $block
+ * @var SecureHtmlRenderer $secureRenderer
+ * @var Escaper $escaper
+ */
+
+$_items = $block->getCustomReviews();
+$format = $block->getDateFormat() ?: \IntlDateFormatter::SHORT;
+?>
+<?php if ($_items && is_array($_items) && count($_items)): ?>
+    <div class="block review-list" id="customer-reviews">
+        <div class="block-title">
+            <strong><?= $escaper->escapeHtml(__('Customer Reviews')) ?></strong>
+        </div>
+        <div class="block-content">
+            <ol class="items review-items">
+                <?php foreach ($_items as $_review): ?>
+                    <li class="item review-item">
+                        <div class="review-title">
+                            <?= $escaper->escapeHtml($_review->getNickname()) ?>
+                        </div>
+                        <div class="review-content">
+                            <?= /* @noEscape */ nl2br($escaper->escapeHtml($_review->getComment())) ?>
+                        </div>
+                        <div class="review-ratings">
+                            <?php
+                            $ratingValue = round($_review->getRating());
+                            for ($i = 1; $i <= 5; $i++): ?>
+                                <span class="rating-star <?= $i <= $ratingValue ? 'filled' : '' ?> fa fa-star"></span>
+                            <?php endfor; ?>
+                        </div>
+                    </li>
+                <?php endforeach; ?>
+            </ol>
+        </div>
+    </div>
+<?php endif; ?>

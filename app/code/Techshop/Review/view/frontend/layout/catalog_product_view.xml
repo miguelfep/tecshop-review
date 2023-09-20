@@ -4,10 +4,10 @@
         <referenceBlock name="product.review.form">
             <action method="setTemplate">
                 <argument name="template" xsi:type="string">Techshop_Review::review/form.phtml</argument>
-            </action>        
+            </action>
         </referenceBlock>
-        <referenceBlock name="product.info.review">
-                <block class="Techshop\Review\Block\ReviewList" name="custom.review.list" template="Techshop_Review::review/list.phtml" />
+        <referenceBlock name="product.info.main">
+            <block class="Techshop\Review\Block\ReviewList" name="techshop.review.list" as="techshop_review_list" template="Techshop_Review::review/list.phtml" />
         </referenceBlock>
 
     </body>

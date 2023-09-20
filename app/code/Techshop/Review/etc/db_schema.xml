@@ -3,9 +3,9 @@
     <table name="techshop_review_data">
         <column xsi:type="int" name="entity_id" unsigned="true" nullable="false" identity="true" comment="Entity ID"/>
         <column xsi:type="int" name="review_id" unsigned="true" nullable="false" comment="Review ID"/>
-        <column xsi:type="smallint" name="is_approved" padding="1" unsigned="true" nullable="false" identity="false" default="0" comment="Approval Status (0 = Not Approved, 1 = Approved)"/>
-        <column xsi:type="decimal" name="rating" scale="2" unsigned="false" nullable="false" default="0" comment="Rating"/>
-        <column xsi:type="smallint" name="was_helpful" unsigned="true" nullable="false" default="0" comment="Was the review helpful?"/>
+        <column xsi:type="varchar" name="nickname" length="255" nullable="false" comment="User Nickname"/>
+        <column xsi:type="smallint" name="is_approved" unsigned="true" nullable="false" identity="false" default="0" comment="Approval Status (0 = Not Approved, 1 = Approved)"/>
+        <column xsi:type="int" name="rating" unsigned="false" nullable="false" default="0" comment="Rating"/>
         <column xsi:type="text" name="comment" nullable="true" comment="Comment"/>
         <constraint xsi:type="primary" referenceId="PRIMARY">
             <column name="entity_id"/>

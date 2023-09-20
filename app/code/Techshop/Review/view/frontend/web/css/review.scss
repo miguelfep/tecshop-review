@@ -2,10 +2,21 @@
     cursor: pointer;
 
     &.fa-star {
+        font-size: 20px;
         color: #e0e0e0;
 
         &.selected {
             color: #FFD700;
         }
+    }
+}
+
+.rating-star {
+    display: inline-block;
+    font-size: 20px;
+    color: #e0e0e0;
+
+    &.filled {
+        color: #FFD700;
     }
 }
