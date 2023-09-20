@@ -7,18 +7,32 @@ use Magento\Backend\App\Action\Context;
 use Magento\Ui\Component\MassAction\Filter;
 use Techshop\Review\Model\ResourceModel\CustomData\CollectionFactory;
 
+/**
+ * Approve Controller for handling approval of reviews in the admin panel.
+ */
 class Approve extends Action
 {
     /**
+     * Filter instance.
+     *
      * @var Filter
      */
     protected $filter;
 
     /**
+     * Collection Factory instance.
+     *
      * @var CollectionFactory
      */
     protected $collectionFactory;
 
+    /**
+     * Constructor.
+     *
+     * @param Context           $context
+     * @param Filter            $filter
+     * @param CollectionFactory $collectionFactory
+     */
     public function __construct(
         Context $context,
         Filter $filter,
@@ -29,12 +43,17 @@ class Approve extends Action
         parent::__construct($context);
     }
 
+    /**
+     * Execute the controller action.
+     *
+     * @return \Magento\Framework\Controller\ResultInterface
+     */
     public function execute()
     {
         try {
             $collection = $this->filter->getCollection($this->collectionFactory->create());
             $itemsApproved = 0;
-            
+
             foreach ($collection as $review) {
                 $review->setIsApproved(1)->save();
                 $itemsApproved++;
@@ -48,6 +67,11 @@ class Approve extends Action
         return $this->_redirect('*/*/');
     }
 
+    /**
+     * Check if the action is allowed.
+     *
+     * @return bool
+     */
     protected function _isAllowed()
     {
         // This should match the ACL resource you defined in your acl.xml

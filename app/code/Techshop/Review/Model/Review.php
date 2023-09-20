@@ -4,37 +4,38 @@ namespace Techshop\Review\Model;
 
 use Magento\Framework\Model\AbstractModel;
 use Magento\Framework\Exception\LocalizedException;
+use Techshop\Review\Model\ResourceModel\Review as ReviewResourceModel;
 
 class Review extends AbstractModel
 {
     /**
-     * Define o nome do campo de identificação para a entidade
+     * Defines the identification field name for the entity.
      *
      * @var string
      */
     protected $_idFieldName = 'entity_id';
 
     /**
-     * Prefixo do nome do evento para usar com os eventos de objeto
+     * Prefix of the event name to use with object events.
      *
      * @var string
      */
     protected $_eventPrefix = 'techshop_review_data';
 
     /**
-     * Inicialização do modelo - define o modelo e o recurso do modelo
+     * Initialization of the model - sets the model and the resource model.
      *
      * @return void
      */
     protected function _construct()
     {
-        $this->_init('Techshop\Review\Model\ResourceModel\Review');
+        $this->_init(ReviewResourceModel::class);
     }
 
     /**
-     * Valida os dados antes de salvar
+     * Validates data before saving.
      *
-     * @return bool|array - Retorna true se a validação passar ou uma matriz de erros se falhar
+     * @return bool|array - Returns true if validation passes or an array of errors if it fails.
      * @throws LocalizedException
      */
     public function validate()
@@ -61,7 +62,10 @@ class Review extends AbstractModel
     }
 
     /**
-     * Set approval status
+     * Set approval status.
+     *
+     * @param int $status Approval status (0 or 1)
+     * @return $this
      */
     public function setIsApproved($status)
     {
@@ -69,7 +73,7 @@ class Review extends AbstractModel
     }
 
     /**
-     * Get approval status
+     * Get approval status.
      */
     public function getIsApproved()
     {
@@ -77,7 +81,7 @@ class Review extends AbstractModel
     }
 
     /**
-     * Approve the review
+     * Approve the review.
      */
     public function approve()
     {
@@ -86,7 +90,7 @@ class Review extends AbstractModel
     }
 
     /**
-     * Disapprove the review
+     * Disapprove the review.
      */
     public function disapprove()
     {

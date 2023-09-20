@@ -4,39 +4,47 @@ namespace Techshop\Review\Controller\Review;
 
 use Magento\Framework\App\Action\Action;
 use Magento\Framework\App\Action\Context;
-use Magento\Framework\App\RequestInterface;
 use Magento\Framework\View\Result\PageFactory;
 use Techshop\Review\Model\ReviewFactory;
 
+/**
+ * Post Controller for handling review submissions.
+ */
 class Post extends Action
 {
     /**
+     * Page Factory instance.
+     *
      * @var PageFactory
      */
     protected $resultPageFactory;
 
     /**
+     * Review Factory instance.
+     *
      * @var ReviewFactory
      */
     protected $reviewFactory;
 
     /**
-     * @param Context $context
+     * Constructor.
+     *
+     * @param Context       $context
      * @param ReviewFactory $reviewFactory
-     * @param PageFactory $resultPageFactory
+     * @param PageFactory   $resultPageFactory
      */
     public function __construct(
         Context $context,
         ReviewFactory $reviewFactory,
         PageFactory $resultPageFactory
-        ) {
+    ) {
         $this->reviewFactory = $reviewFactory;
         $this->resultPageFactory = $resultPageFactory;
         parent::__construct($context);
     }
 
     /**
-     * Execute view action
+     * Execute the review submission action.
      *
      * @return \Magento\Framework\Controller\ResultInterface
      */
@@ -46,7 +54,7 @@ class Post extends Action
             $data = $this->getRequest()->getPostValue();
 
             if (!$data) {
-                throw new \Exception(__('Invalid form data.'));
+                throw new \Magento\Framework\Exception\LocalizedException(__('Invalid form data.'));
             }
 
             $review = $this->reviewFactory->create();
@@ -59,6 +67,5 @@ class Post extends Action
         }
 
         return $this->resultRedirectFactory->create()->setRefererOrBaseUrl();
-
     }
 }

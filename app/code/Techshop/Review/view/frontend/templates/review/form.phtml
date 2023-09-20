@@ -3,7 +3,11 @@
         <strong><?= $block->escapeHtml(__('Write Your Own Review')) ?></strong>
     </div>
     <div class="block-content">
-        <form action="<?= $block->getUrl('techshop_review/review/post') ?>" class="review-form" method="post" id="review-form" data-role="product-review-form">
+        <form action="<?= $block->escapeUrl($block->getUrl('techshop_review/review/post')) ?>"
+              class="review-form"
+              method="post"
+              id="review-form"
+              data-role="product-review-form">
             <?= $block->getBlockHtml('formkey') ?>
             <fieldset class="fieldset review-fieldset">
 
@@ -13,7 +17,7 @@
                         <span><?= $block->escapeHtml(__('Nickname')) ?></span>
                     </label>
                     <div class="control">
-                        <input type="text" name="nickname" id="nickname_field" class="input-text" data-validate="{required:true}" />
+                        <input type="text" name="nickname" id="nickname_field" class="input-text" data-validate="{required:true}">
                     </div>
                 </div>
                 <div class="field review-field-text required">
@@ -31,14 +35,12 @@
                     <div class="control">
                         <div class="stars">
                             <?php for ($i = 1; $i <= 5; $i++): ?>
-                                <span class="fa fa-star" data-rating="<?= $i ?>"></span>
+                                <span class="fa fa-star" data-rating="<?= $block->escapeHtml($i) ?>"></span>
                             <?php endfor; ?>
                         </div>
-                        <input type="hidden" name="rating" id="review_rating" data-validate="{required:true}" />
+                        <input type="hidden" name="rating" id="review_rating" data-validate="{required:true}">
                     </div>
                 </div>
-
-                <!-- Botão de envio -->
                 <div class="actions-toolbar review-form-actions">
                     <div class="primary actions-primary">
                         <button type="submit" class="action submit primary">
@@ -52,10 +54,10 @@
 </div>
 
 <script type="text/x-magento-init">
-{
-    ".stars": {
-        "customStarRating": {}
+    {
+        ".stars": {
+            "customStarRating": {}
+        }
     }
-}
 </script>
 

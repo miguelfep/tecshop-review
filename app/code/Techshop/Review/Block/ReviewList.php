@@ -6,6 +6,9 @@ use Magento\Framework\View\Element\Template;
 use Magento\Framework\View\Element\Template\Context;
 use Techshop\Review\Model\ResourceModel\CustomData\CollectionFactory as ReviewCollectionFactory;
 
+/**
+ * Block for displaying a list of custom reviews.
+ */
 class ReviewList extends Template
 {
     /**
@@ -18,9 +21,9 @@ class ReviewList extends Template
     /**
      * Constructor.
      *
-     * @param Context $context
+     * @param Context                 $context
      * @param ReviewCollectionFactory $reviewCollectionFactory
-     * @param array $data
+     * @param array                   $data
      */
     public function __construct(
         Context $context,
@@ -41,5 +44,5 @@ class ReviewList extends Template
         $collection = $this->_reviewCollectionFactory->create();
         $collection->addApprovedFilter();
         return $collection->getItems();
-        }  
+    }
 }
